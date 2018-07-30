@@ -1,0 +1,32 @@
+{% extends 'app1/app1_base.html' %}
+
+{% block head_block %}
+    <title>{{ company_detail.name }}</title>
+{% endblock %}
+
+{% block body_block %}
+    <h1>About {{ company_detail.name }}</h1>
+        <p>Headquarters: {{ company_detail.headquarters }}</p>
+        <p>Industry: {{ company_detail.industry }}</p>
+        <p>Founding Year: {{ company_detail.founding_year }}</p>
+
+        <div class="container">
+            <p>
+                <a class = 'btn btn-warning' href="{% url 'app1:companyUpdate' pk=company_detail.pk %}">Update</a>
+                <a class = 'btn btn-danger' href="{% url 'app1:companyDelete' pk=company_detail.pk %}">Delete</a>
+            </p>
+        </div>
+
+        <h2>Employees:</h2>
+        {% for employee in company_detail.employees.all %}
+        <div>
+            <h4>{{ employee.name }}:</h4>
+            <p>{{ employee.position }}</p>
+            <p>Works at {{ employee.location }}</p>
+        </div>
+
+        {% endfor %}
+
+
+
+{% endblock %}

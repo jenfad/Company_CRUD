@@ -1,0 +1,21 @@
+{% extends 'app1/app1_base.html' %}
+
+{% block head_block %}
+    <title>Company List</title>
+{% endblock %}
+
+{% block body_block %}
+    <h1 class="display-4">Company List</h1>
+    <p class="lead">Click on each company for more info as well as a list of employees and to be able to update or delete it.</p>
+    <ol>
+        {% for company in companies %}
+        <h2><li><a href="{{ company.id }}">{{ company.name }}</a></li></h2>
+        {% endfor %}
+    </ol>
+
+    <div class="container">
+        <p>
+            <a class = 'btn btn-warning' href="{% url 'app1:create' %}">Add</a>
+        </p>
+    </div>
+{% endblock %}

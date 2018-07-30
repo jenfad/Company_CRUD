@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head_block %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class = 'jumbotron'>
+        <h1 class="display-4">Simple Company CRUD</h1>
+
+        <p class="lead">Click on <a href="{% url 'app1:list' %}">Companies</a> to see a list of companies initially generated using the faker library.</p>
+         <p class="lead">Click on <a href="{% url 'app1:create' %}">Create</a> to create a new company</p>
+    </div>
+{% endblock %}
